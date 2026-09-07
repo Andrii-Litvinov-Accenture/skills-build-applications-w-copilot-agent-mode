@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 import { EmptyState, ErrorState, LoadingState } from './CollectionState.jsx'
 
+const leaderboardEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+  : undefined
+
 export default function Leaderboard() {
   const [entries, setEntries] = useState(null)
   const [error, setError] = useState('')
-  useEffect(() => { fetchCollection('leaderboard').then(setEntries).catch((err) => setError(err.message)) }, [])
+  useEffect(() => { fetchCollection('leaderboard', leaderboardEndpoint).then(setEntries).catch((err) => setError(err.message)) }, [])
   if (error) return <ErrorState message={error} />
   if (!entries) return <LoadingState />
   if (!entries.length) return <EmptyState label="leaderboard entries" />

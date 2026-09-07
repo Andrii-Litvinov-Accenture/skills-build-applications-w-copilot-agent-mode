@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 import { EmptyState, ErrorState, LoadingState } from './CollectionState.jsx'
 
+const workoutsEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+  : undefined
+
 export default function Workouts() {
   const [workouts, setWorkouts] = useState(null)
   const [error, setError] = useState('')
-  useEffect(() => { fetchCollection('workouts').then(setWorkouts).catch((err) => setError(err.message)) }, [])
+  useEffect(() => { fetchCollection('workouts', workoutsEndpoint).then(setWorkouts).catch((err) => setError(err.message)) }, [])
   if (error) return <ErrorState message={error} />
   if (!workouts) return <LoadingState />
   if (!workouts.length) return <EmptyState label="workouts" />

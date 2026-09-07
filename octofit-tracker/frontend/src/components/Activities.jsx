@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 import { EmptyState, ErrorState, LoadingState } from './CollectionState.jsx'
 
+const activitiesEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : undefined
+
 export default function Activities() {
   const [activities, setActivities] = useState(null)
   const [error, setError] = useState('')
 
-  useEffect(() => { fetchCollection('activities').then(setActivities).catch((err) => setError(err.message)) }, [])
+  useEffect(() => { fetchCollection('activities', activitiesEndpoint).then(setActivities).catch((err) => setError(err.message)) }, [])
 
   if (error) return <ErrorState message={error} />
   if (!activities) return <LoadingState />
