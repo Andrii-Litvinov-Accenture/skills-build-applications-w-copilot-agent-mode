@@ -1,0 +1,38 @@
+:root { --ink: #18221f; --muted: #75817b; --line: #dce4dd; --lime: #c8f169; --forest: #193b34; --paper: #f4f6f2; }
+.app-shell { min-height: 100vh; background: radial-gradient(circle at 90% 0%, #e5f2c8 0, transparent 28%), var(--paper); }
+.app-header { align-items: center; border-bottom: 1px solid var(--line); display: flex; gap: 48px; justify-content: space-between; padding: 22px clamp(20px, 5vw, 72px); }
+.brand { align-items: center; color: var(--ink); display: flex; font-size: 17px; font-weight: 800; gap: 10px; text-decoration: none; white-space: nowrap; }
+.brand em { color: var(--muted); font-style: normal; font-weight: 400; }
+.brand-mark { align-items: center; background: var(--forest); border-radius: 50%; color: var(--lime); display: inline-flex; font-family: 'DM Mono', monospace; height: 30px; justify-content: center; width: 30px; }
+.nav-pills { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+.nav-link { border-radius: 999px; color: var(--muted); font-size: 13px; padding: 8px 13px; text-decoration: none; }
+.nav-link:hover, .nav-link.active { background: #e4ebdf; color: var(--ink); }
+.dashboard { max-width: 1380px; padding: clamp(38px, 7vw, 92px) clamp(20px, 5vw, 72px) 44px; }
+.dashboard-heading { align-items: flex-end; display: flex; justify-content: space-between; margin-bottom: 42px; }
+.eyebrow, .tile-kicker { color: #7b9360; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .14em; }
+h1 { font-size: clamp(38px, 6vw, 74px); letter-spacing: -.06em; line-height: .98; margin: 13px 0 14px; }
+.dashboard-heading p { color: var(--muted); margin: 0; }
+.status-chip { align-items: center; color: var(--muted); display: inline-flex; font-size: 12px; gap: 8px; }
+.status-chip span { background: #69ad57; border-radius: 50%; height: 7px; width: 7px; }
+.content-panel { background: rgba(255, 255, 255, .72); border: 1px solid var(--line); border-radius: 4px; min-height: 310px; padding: clamp(20px, 3vw, 34px); }
+.table { --bs-table-bg: transparent; --bs-table-color: var(--ink); }
+.table thead { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; }
+.table th { border-bottom-color: var(--ink); font-weight: 400; padding-bottom: 15px; }
+.table td { border-bottom-color: var(--line); padding: 18px 8px; }
+.empty-state { align-items: center; color: var(--muted); display: flex; justify-content: center; min-height: 220px; }
+.leaderboard-list { display: grid; gap: 2px; }
+.leaderboard-row { align-items: center; border-bottom: 1px solid var(--line); display: flex; gap: 20px; padding: 18px 4px; }
+.rank { color: #a6b1a8; font-family: 'DM Mono', monospace; font-size: 12px; width: 28px; }
+.leaderboard-row small, .user-row small { color: var(--muted); display: block; font-size: 12px; margin-top: 4px; }
+.points { color: #658844; font-family: 'DM Mono', monospace; font-size: 13px; }
+.team-tile, .workout-card { background: #fff; border: 1px solid var(--line); border-radius: 3px; height: 100%; padding: 22px; }
+.team-tile h3, .workout-card h3 { font-size: 20px; letter-spacing: -.03em; margin: 16px 0 8px; }
+.team-tile p, .workout-card p { color: var(--muted); font-size: 14px; margin-bottom: 26px; }
+.workout-card footer { border-top: 1px solid var(--line); color: var(--ink); font-family: 'DM Mono', monospace; font-size: 12px; padding-top: 14px; }
+.workout-card footer span { color: var(--muted); float: right; }
+.user-grid { display: grid; gap: 2px; }
+.user-row { align-items: center; border-bottom: 1px solid var(--line); display: flex; gap: 14px; padding: 15px 4px; }
+.avatar { align-items: center; background: var(--lime); border-radius: 50%; color: var(--forest); display: flex; font-weight: 800; height: 38px; justify-content: center; width: 38px; }
+.user-row .text-muted { font-size: 12px; }
+.app-footer { color: #96a199; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; padding: 0 clamp(20px, 5vw, 72px) 30px; }
+@media (max-width: 700px) { .app-header, .dashboard-heading { align-items: flex-start; flex-direction: column; gap: 22px; } .nav-pills { justify-content: flex-start; } .user-row .text-muted { display: none; } .workout-card footer span { float: none; margin-left: 8px; } }
