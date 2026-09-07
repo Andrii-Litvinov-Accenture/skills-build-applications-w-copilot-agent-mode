@@ -1,4 +1,22 @@
-# React + TypeScript + Vite
+# OctoFit Tracker frontend
+
+## Environment
+
+Define `VITE_CODESPACE_NAME` in `.env.local` when running in GitHub Codespaces:
+
+```dotenv
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+The app calls `https://${VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/` when it is defined. When it is unset, the app safely falls back to `http://localhost:8000/api/[component]/` for local development.
+
+## Development
+
+```bash
+npm run dev
+```
+
+Vite serves the presentation tier on port `5173`.# React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
