@@ -8,7 +8,7 @@ Define `VITE_CODESPACE_NAME` in `.env.local` when running in GitHub Codespaces:
 VITE_CODESPACE_NAME=your-codespace-name
 ```
 
-The app calls `https://${VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/` when it is defined. When it is unset, the app safely falls back to `http://localhost:8000/api/[component]/` for local development.
+The app calls `https://${VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/` when it is defined. If it is unset in a Codespaces browser, the app derives the API hostname from the forwarded frontend hostname; ordinary local development safely falls back to `http://localhost:8000/api/[component]/`.
 
 ## Development
 
